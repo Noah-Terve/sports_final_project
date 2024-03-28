@@ -1,0 +1,20 @@
+Jack Tobia
+Jake Lawton
+Noah Tervalon
+
+Summary of our Project:
+Our goal is to find the volatility of players produced by colleges based on performance in the NBA after graduation. We will do this by compiling a list of players for each university
+and calculating their value (by a currently undetermined method) and presenting some general stats on each university such as highest, lowest, and standard deviation of player value.
+
+Actionability:
+The actionable part of this project will be showing potential risk when drafting players that are highly rated based on their university. For example if the number 1 draft pick is from
+a university that has high volatility then you might opt for the number 2 pick who is from a much more consistent university because their value is likely to be more consistant.
+
+Data to be Used:
+We are going to use a data set that contains a list of players from 1947 to 2022 and the colleges they were drafted from (we will only take players who have had a chance to progress
+in their career, so were drafted more than 5 years ago). We are also going to use a different data set which contains
+various stats on the players as the colleges dataset doesn't have per season stats (we will scrape basketball reference).
+
+Detailed Explanation:
+x
+
