@@ -1,4 +1,4 @@
-Sports Andalytics Final Project
+Sports Analytics Final Project
 
 https://www.nba.com/stats/draft/history
 
