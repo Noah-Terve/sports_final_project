@@ -4,14 +4,7 @@ from datetime import datetime
 from bs4 import BeautifulSoup
 
 import csv
-
-# Steps taken to get the actual html to scrape:
-# go to this site: https://www.nba.com/stats/draft/history
-# select 'All' under page, then download the html.
-# Pretify that (for readability), I used https://webformatter.com/html
-# Copy over to this directory so we can read from it
-
-# Table class = "Crom_table__p1iZz"
+import pprint
 
 path = "nba_draft_info.html"
 with open(path) as file:
@@ -35,4 +28,58 @@ for i in range(1, len(rows)):
             college = col[2].string
             college_info[name] = college
 
-print(college_info)
+
+draft_names = college_info.keys()
+per_names = []
+
+with open ("Player Per Game.csv") as file:
+    reader = csv.reader(file)
+    i = 0
+    for row in reader:
+        per_names.append(row[3])
+
+per_names = list(set(per_names))
+
+# remove names that aren't in the player per game dataset
+names_to_pop = []
+for name in draft_names:
+    if not name in per_names:
+        names_to_pop.append(name)
+
+for name in names_to_pop:
+    college_info.pop(name)
+
+# iterate over the players we have left, build school to player mapping
+schools = {} # schools -> {school : [Player -> [season stat list], Player -> [season stat list]]}
+draft_names = college_info.keys()
+for name in draft_names:
+    try:
+        schools[college_info[name]].append({name : []})
+    except:
+        schools[college_info[name]] = [{name : []}]
+
+with open ("Player Per Game.csv") as file:
+    reader = csv.reader(file)
+    i = 0
+    for row in reader:
+        if i == 0:
+            keys = row
+            i += 1
+            continue
+        # name -> row[3]
+        # lookup school based on name
+        # in schools find player
+        # build dictionary from row 
+        # add dicitonary to their list of stats
+        school_name = college_info[row[3]]
+        schools[school_name]
+        
+        
+        
+        
+# post processing, only take the first 4 seasons of data
+for school in schools:
+    for player in school:
+        
+
+pprint.pp(schools)
