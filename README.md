@@ -4,9 +4,6 @@ https://www.nba.com/stats/draft/history
 
 https://www.kaggle.com/datasets/sumitrodatta/nba-aba-baa-stats
 
-Possible Formulas:
-https://sports.icalculator.com/basketball-performance-index-rating-claculator.html#:~:text=The%20formula%20for%20calculating%20PIR%20is%20relatively%20straightforward,%2B%20Turnovers%20%2B%20Shots%20Rejected%20%2B%20Fouls%20Committed%29
+Formula: https://en.wikipedia.org/wiki/Efficiency_(basketball)#cite_note-1
 
-https://basketballstat.home.blog/2019/08/07/player-efficiency-rating-per/
-
-https://en.wikipedia.org/wiki/Efficiency_(basketball)#cite_note-1
+Formula w/ csv column names: pts_per_game + trb_per_game + ast_per_game + stl_per_game + blk_per_game - (fga_per_game - fg_per_game) - (fta_per_game - ft_per_game) - tov_per_game
