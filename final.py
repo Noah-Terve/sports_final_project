@@ -6,6 +6,7 @@ from bs4 import BeautifulSoup
 import csv
 import pprint
 
+# Getting Player Collages Data
 path = "nba_draft_info.html"
 with open(path) as file:
     soup = BeautifulSoup(file, "html.parser")
@@ -14,7 +15,7 @@ with open(path) as file:
 table = soup.find(class_ = "Crom_table__p1iZz")
 rows = table.find_all('tr')
 
-college_info = {}
+college_info = {} # {player: school_name}
 
 for i in range(1, len(rows)):
     col = rows[i].find_all('td')
@@ -29,16 +30,15 @@ for i in range(1, len(rows)):
             college_info[name] = college
 
 
-draft_names = college_info.keys()
+draft_names = college_info.keys() # All names of players in the nba draft info
 per_names = []
 
 with open ("Player Per Game.csv") as file:
     reader = csv.reader(file)
-    i = 0
     for row in reader:
         per_names.append(row[3])
 
-per_names = list(set(per_names))
+per_names = list(set(per_names)) # Set of names who are in the player per game
 
 # remove names that aren't in the player per game dataset
 names_to_pop = []
@@ -58,6 +58,7 @@ for name in draft_names:
     except:
         schools[college_info[name]] = [{name : []}]
 
+
 with open ("Player Per Game.csv") as file:
     reader = csv.reader(file)
     i = 0
@@ -71,15 +72,18 @@ with open ("Player Per Game.csv") as file:
         # in schools find player
         # build dictionary from row 
         # add dicitonary to their list of stats
-        school_name = college_info[row[3]]
-        schools[school_name]
+        try:
+            school_name = college_info[row[3]]
+            schools[school_name]
+        except:
+            # player is not in the players that we have school info on
+            pass
         
         
         
-        
-# post processing, only take the first 4 seasons of data
-for school in schools:
-    for player in school:
+# # post processing, only take the first 4 seasons of data
+# for school in schools:
+#     for player in school:
         
 
 pprint.pp(schools)
