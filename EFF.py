@@ -1,7 +1,7 @@
 
 # (PTS + REB + AST + STL + BLK − Missed FG − Missed FT - TO) / GP [1]
 
-def EFF(PTS, REB, AST, STL, BLK, FGA, FG, FT, FTA, TO, Games):
+def EFF(PTS, REB, AST, STL, BLK, FGA, FG, FT, FTA, TO):
     # print("Hello World")
     MissedFG = FGA - FG
     MissedFT = FTA - FT
