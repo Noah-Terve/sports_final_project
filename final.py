@@ -115,10 +115,10 @@ for school in schools:
         idxs_to_pop = []
         for i in range(len(player_val)):
             year, *_ = player_val[i]
-            if year >= 2020:
-                idxs_to_pop.append(i)
+            # if year >= 2020:
+            #     idxs_to_pop.append(i)
 
-            elif year == last_year:
+            if year == last_year:
                 idxs_to_pop.append(i)
         
             last_year = year
@@ -127,7 +127,10 @@ for school in schools:
             player_val.pop(idx)
         
         # only get their first 4 seasons
-        schools[school][player] = player_val[-4:]
+        if (len(player_val) < 4):
+            school[school].pop(player)
+        else:
+            schools[school][player] = player_val[-4:]
         
 
 # go through schools, calculate values for each player
