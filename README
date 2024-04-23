@@ -1,4 +1,8 @@
-Sports analytics final project
+Sports analytics final project:
+Volatility in colleges that send players to the NBA
 
 To run the code just run final.py and it will print out the data that's stored in
 results.csv.
+
+We used scrape_schools.py to grab the nba_draft_info.html page from the nba's
+website, at the top of that file are notes on how that process was done. 
