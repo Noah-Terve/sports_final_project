@@ -1,11 +1,9 @@
 #imports 
-import requests, time
-from datetime import datetime
+
 from bs4 import BeautifulSoup
 from EFF import EFF
 from statistics import stdev, mean
 import csv
-import pprint
 
 # Getting Player Collages Data
 path = "nba_draft_info.html"
@@ -172,15 +170,7 @@ best.sort(key=lambda x: x[0])
 
 all_school_info.sort(key=lambda x: x[0])
 
-# pprint.pp(std_dev_order)
-# for val, info in best:
-#     pprint.pp(info)
-
-# pprint.pp(best[:][1])
-
-# pprint.pp(schools)
-
-
+# print data to a csv (you should pipe the output here)
 print("School Name, Average Value of Player, Standard Deviation, ,Schools Ordered by Average Player Value, Schools Ordered by Standard Deviation, Avg Position in Ordered Lists")
 for i in range(len(all_school_info)):
     name, val, std_dev = all_school_info[i]
